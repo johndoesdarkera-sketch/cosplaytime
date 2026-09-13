@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosplayTime | Premium Replica Gear</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#e63946',
+                            darkRed: '#c1121f',
+                            bg: '#0a0b0e',
+                            card: '#14161f',
+                            border: '#232736',
+                            accent: '#ff4d5a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0b0e;
+            color: #f1f5f9;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(230, 57, 70, 0.3);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 30px 2px rgba(230, 57, 70, 0.4);
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-slate-100 min-h-screen flex flex-col bg-grid antialiased">
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-brand-red via-red-600 to-brand-red text-white text-xs md:text-sm font-bold py-2 px-4 text-center tracking-wide shadow-md flex justify-between items-center px-6">
+        <span class="mx-auto"><i class="fa-solid fa-bolt mr-2 animate-pulse"></i> NEW RESTOCKS & UNBOXING DROPS LIVE!</span>
+        <button id="adminToggleBtn" onclick="toggleAdminMode()" class="text-xs bg-black/40 hover:bg-black/60 px-3 py-1 rounded-full border border-white/20 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="adminBtnText">Owner Login</span>
+        </button>
+    </div>
+
+    <!-- OWNER CONTROL BAR (Visible only in Admin Mode) -->
+    <div id="adminBar" class="hidden bg-slate-900 border-b border-brand-red/50 py-3 px-6 text-sm flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-2 text-brand-accent font-bold">
+            <i class="fa-solid fa-lock-open text-green-400"></i>
+            <span>ADMIN MODE ACTIVE</span>
+            <span class="text-xs text-slate-400 font-normal">(Changes sync locally & can be exported to GitHub)</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="openAddProductModal()" class="bg-green-600 hover:bg-green-500 text-white font-semibold text-xs px-3 py-2 rounded-lg transition flex items-center gap-1.5">
+                <i class="fa-solid fa-plus"></i> Add New Suit / Gear
+            </button>
+            <button onclick="exportJSON()" class="bg-brand-red hover:bg-brand-darkRed text-white font-semibold text-xs px-3 py-2 rounded-lg transition flex items-center gap-1.5">
+                <i class="fa-solid fa-download"></i> Export products.json
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="border-b border-brand-border/60 backdrop-blur-md bg-brand-bg/90 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+            
+            <!-- BRAND LOGO AREA -->
+            <div class="flex items-center gap-4 cursor-pointer" onclick="filterCategory('All')">
+                <div class="relative group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-red to-slate-900 p-0.5 glow-effect">
+                        <div class="w-full h-full bg-brand-card rounded-[10px] flex items-center justify-center overflow-hidden">
+                            <i class="fa-solid fa-shield-halved text-brand-red text-2xl group-hover:scale-110 transition duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tight flex items-center gap-1.5 text-white">
+                        COSPLAY<span class="text-brand-red">TIME</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase flex items-center gap-1">
+                        ASSOCIATED WITH 
+                        <span class="text-slate-200 border-b border-slate-600 pb-0.5">STARCINE COLLECTIBLES</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div class="hidden md:flex flex-1 max-w-md mx-6 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search Spider-Man, Deadpool, Power Rangers..." 
+                    class="w-full bg-slate-900/80 border border-brand-border text-sm rounded-xl pl-10 pr-4 py-2 text-slate-200 focus:outline-none focus:border-brand-red transition">
+            </div>
+
+            <!-- CART BUTTON -->
+            <button onclick="toggleCartModal()" class="relative bg-brand-card hover:bg-slate-800 border border-brand-border p-2.5 rounded-xl transition flex items-center justify-center">
+                <i class="fa-solid fa-cart-shopping text-slate-300 text-lg"></i>
+                <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-brand-red text-white text-[11px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-brand-bg">0</span>
+            </button>
+        </div>
+
+        <!-- CATEGORY NAVIGATION -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-brand-border/40 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar">
+            <button onclick="filterCategory('All')" class="cat-btn active bg-brand-red text-white text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap">All Items</button>
+            <button onclick="filterCategory('Spider-Man')" class="cat-btn bg-slate-900 hover:bg-slate-800 text-slate-300 border border-brand-border text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap"><i class="fa-solid fa-spider mr-1.5 text-red-500"></i> Spider-Man</button>
+            <button onclick="filterCategory('Deadpool')" class="cat-btn bg-slate-900 hover:bg-slate-800 text-slate-300 border border-brand-border text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap"><i class="fa-solid fa-mask mr-1.5 text-red-600"></i> Deadpool</button>
+            <button onclick="filterCategory('Power Rangers')" class="cat-btn bg-slate-900 hover:bg-slate-800 text-slate-300 border border-brand-border text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap"><i class="fa-solid fa-bolt mr-1.5 text-yellow-500"></i> Power Rangers</button>
+        </div>
+    </header>
+
+    <!-- HERO FEATURE BANNER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-6">
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-red-950/80 via-slate-900 to-slate-950 border border-brand-border p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 glow-effect">
+            <div class="space-y-4 max-w-xl text-center md:text-left">
+                <span class="inline-block bg-brand-red/20 text-brand-accent border border-brand-red/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Official Unboxing & Pre-Orders
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                    Movie-Accurate Suits & Replica Prop Masks
+                </h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Hand-crafted cosplay armor, 3D printed shells, magnetic lenses, and tailored suits designed for showcase and screen fidelity.
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                    <span class="text-xs text-slate-400 flex items-center gap-1.5 bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg">
+                        <i class="fa-solid fa-shield-halved text-brand-red"></i> Premium Replica Quality
+                    </span>
+                    <span class="text-xs text-slate-400 flex items-center gap-1.5 bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg">
+                        <i class="fa-solid fa-truck-fast text-green-400"></i> Worldwide Shipping
+                    </span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer" onclick="filterCategory('Spider-Man')">
+                <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl bg-gradient-to-br from-brand-red/30 to-purple-900/30 border border-brand-red/40 flex items-center justify-center p-4 transform group-hover:scale-105 transition duration-500">
+                    <i class="fa-solid fa-mask text-7xl text-brand-red opacity-80 group-hover:opacity-100 transition"></i>
+                </div>
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur px-3 py-1 rounded-full border border-white/10 text-[11px] font-bold text-slate-300 whitespace-nowrap">
+                    Featured: Raimi Mask V2
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-1">
+        <div class="flex items-center justify-between mb-6 border-b border-brand-border/40 pb-4">
+            <div>
+                <h3 id="currentCategoryTitle" class="text-xl font-extrabold text-white">All Store Inventory</h3>
+                <p class="text-xs text-slate-400 mt-0.5" id="itemCountText">Showing 0 products</p>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <span class="text-xs text-slate-400 font-semibold hidden sm:inline">Filter Stock:</span>
+                <select id="stockFilter" onchange="applyFilters()" class="bg-slate-900 border border-brand-border text-xs rounded-lg px-3 py-1.5 text-slate-200 focus:outline-none">
+                    <option value="all">All Items</option>
+                    <option value="inStock">In Stock Only</option>
+                    <option value="preorder">Out / Pre-Order</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dynamic Cards Render Here -->
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="emptyState" class="hidden text-center py-16 space-y-3">
+            <i class="fa-solid fa-box-open text-5xl text-slate-600"></i>
+            <p class="text-slate-400 font-semibold">No cosplay gear found matching your search.</p>
+            <button onclick="resetFilters()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg font-bold">Clear Filters</button>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-brand-border/60 bg-slate-950 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-shield-halved text-brand-red text-xl"></i>
+                <div>
+                    <p class="text-sm font-bold text-white">COSPLAYTIME</p>
+                    <p class="text-xs text-slate-500">Associated with StarCine Collectibles</p>
+                </div>
+            </div>
+            <div class="text-xs text-slate-500 text-center md:text-right space-y-1">
+                <p>&copy; 2026 CosplayTime Storefront. All rights reserved.</p>
+                <p>Designed for prop collectors, cosplayers, and convention creators.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="cartModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="w-full max-w-md bg-brand-card h-full border-l border-brand-border p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between border-b border-brand-border/60 pb-4">
+                    <h3 class="text-lg font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-brand-red"></i> Shopping Cart
+                    </h3>
+                    <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white p-1 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div id="cartItemsList" class="py-4 space-y-3 overflow-y-auto max-h-[60vh]">
+                    <!-- Cart items render here -->
+                </div>
+            </div>
+
+            <div class="border-t border-brand-border/60 pt-4 space-y-4">
+                <div class="flex justify-between text-base font-extrabold text-white">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal" class="text-brand-accent">$0.00</span>
+                </div>
+                <button onclick="checkoutAlert()" class="w-full bg-brand-red hover:bg-brand-darkRed text-white font-extrabold py-3 rounded-xl shadow-lg transition">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD PRODUCT MODAL (Admin Only) -->
+    <div id="addProductModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-brand-border pb-3">
+                <h3 class="text-lg font-extrabold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-plus text-green-400"></i> Add New Product Item
+                </h3>
+                <button onclick="closeAddProductModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <form id="addProductForm" onsubmit="saveNewProduct(event)" class="space-y-3">
+                <div>
+                    <label class="text-xs font-bold text-slate-300 block mb-1">Product Title</label>
+                    <input type="text" id="newTitle" required placeholder="e.g. TASM 2 Spidey Mask" class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-brand-red">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-xs font-bold text-slate-300 block mb-1">Category</label>
+                        <select id="newCategory" class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none">
+                            <option value="Spider-Man">Spider-Man</option>
+                            <option value="Deadpool">Deadpool</option>
+                            <option value="Power Rangers">Power Rangers</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-300 block mb-1">Price ($)</label>
+                        <input type="number" step="0.01" id="newPrice" required placeholder="149.99" class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-brand-red">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-xs font-bold text-slate-300 block mb-1">Image URL / Filename</label>
+                    <input type="text" id="newImage" placeholder="https://... or image.jpg" class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="text-xs font-bold text-slate-300 block mb-1">Stock Status</label>
+                    <select id="newStock" class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none">
+                        <option value="true">In Stock</option>
+                        <option value="false">Out of Stock / Pre-Order</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-xs font-bold text-slate-300 block mb-1">Description</label>
+                    <textarea id="newDesc" rows="2" placeholder="Item materials, feature notes..." class="w-full bg-slate-900 border border-brand-border rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none"></textarea>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeAddProductModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-500 text-xs font-bold text-white rounded-lg">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EXPORT JSON MODAL (Admin) -->
+    <div id="exportModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-brand-border pb-3">
+                <h3 class="text-lg font-extrabold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-code text-brand-accent"></i> products.json Output
+                </h3>
+                <button onclick="closeExportModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <p class="text-xs text-slate-400">Copy this code and replace the contents of your <code class="text-brand-red bg-slate-900 px-1 py-0.5 rounded">products.json</code> file on GitHub!</p>
+            <textarea id="jsonOutput" readonly rows="10" class="w-full bg-slate-950 border border-brand-border font-mono text-xs text-slate-300 p-3 rounded-lg focus:outline-none"></textarea>
+            <div class="flex justify-end gap-2">
+                <button onclick="copyToClipboard()" class="px-4 py-2 bg-brand-red hover:bg-brand-darkRed text-xs font-bold text-white rounded-lg flex items-center gap-1.5">
+                    <i class="fa-solid fa-copy"></i> Copy Code
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION SCRIPT LOGIC -->
+    <script>
+        // Initial Catalog - Clean Empty State
+        const initialProducts = [];
+
+        // State Management
+        let products = JSON.parse(localStorage.getItem('cosplaytime_inventory')) || initialProducts;
+        let cart = [];
+        let currentCategory = 'All';
+        let adminMode = false;
+
+        // Save local state helper
+        function saveLocalInventory() {
+            localStorage.setItem('cosplaytime_inventory', JSON.stringify(products));
+        }
+
+        // Render Product Catalog
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const stockFilter = document.getElementById('stockFilter').value;
+
+            grid.innerHTML = '';
+
+            const filtered = products.filter(item => {
+                const matchesCat = currentCategory === 'All' || item.category === currentCategory;
+                const matchesSearch = item.title.toLowerCase().includes(searchQuery) || item.category.toLowerCase().includes(searchQuery);
+                const matchesStock = stockFilter === 'all' ? true : stockFilter === 'inStock' ? item.inStock : !item.inStock;
+                return matchesCat && matchesSearch && matchesStock;
+            });
+
+            document.getElementById('itemCountText').innerText = `Showing ${filtered.length} products`;
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                filtered.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = "bg-brand-card border border-brand-border/70 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 glow-hover relative group";
+
+                    card.innerHTML = `
+                        <div>
+                            <!-- IMAGE & BADGES -->
+                            <div class="relative h-52 bg-slate-900 overflow-hidden">
+                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?auto=format&fit=crop&w=600&q=80'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                                
+                                <span class="absolute top-3 left-3 bg-black/80 backdrop-blur text-brand-accent border border-brand-red/30 text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                                    ${p.category}
+                                </span>
+
+                                <span class="absolute top-3 right-3 text-[10px] font-extrabold px-2.5 py-1 rounded-md ${p.inStock ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'}">
+                                    ${p.inStock ? '<i class="fa-solid fa-check mr-1"></i> IN STOCK' : '<i class="fa-solid fa-clock mr-1"></i> PRE-ORDER'}
+                                </span>
+                            </div>
+
+                            <!-- CARD BODY -->
+                            <div class="p-4 space-y-2">
+                                <h4 class="font-bold text-base text-white group-hover:text-brand-accent transition">${p.title}</h4>
+                                <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">${p.description || 'Premium high-detail replica gear.'}</p>
+                            </div>
+                        </div>
+
+                        <!-- CARD FOOTER & ACTIONS -->
+                        <div class="p-4 border-t border-brand-border/40 flex items-center justify-between gap-2 bg-slate-950/40">
+                            <div>
+                                <span class="text-xs text-slate-500 block leading-none">Price</span>
+                                <span class="text-lg font-black text-white">$${p.price.toFixed(2)}</span>
+                            </div>
+
+                            <div class="flex items-center gap-1.5">
+                                ${adminMode ? `
+                                    <button onclick="toggleStockStatus('${p.id}')" title="Toggle Stock Status" class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-bold border border-slate-700">
+                                        <i class="fa-solid fa-power-off ${p.inStock ? 'text-green-400' : 'text-red-400'}"></i>
+                                    </button>
+                                    <button onclick="deleteProduct('${p.id}')" title="Delete Product" class="p-2 bg-red-950/80 hover:bg-red-900 text-red-400 rounded-lg text-xs font-bold border border-red-900">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                ` : ''}
+
+                                <button onclick="addToCart('${p.id}')" ${!p.inStock ? 'disabled' : ''} class="${p.inStock ? 'bg-brand-red hover:bg-brand-darkRed text-white' : 'bg-slate-800 text-slate-500 cursor-not-allowed'} px-3.5 py-2 rounded-lg text-xs font-extrabold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-cart-plus"></i> ${p.inStock ? 'Buy Now' : 'Sold Out'}
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Filtering
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.getElementById('currentCategoryTitle').innerText = cat === 'All' ? 'All Store Inventory' : `${cat} Gear`;
+            
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All'))) {
+                    btn.className = 'cat-btn active bg-brand-red text-white text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap';
+                } else {
+                    btn.className = 'cat-btn bg-slate-900 hover:bg-slate-800 text-slate-300 border border-brand-border text-xs font-bold px-4 py-1.5 rounded-lg transition whitespace-nowrap';
+                }
+            });
+            renderProducts();
+        }
+
+        function handleSearch() { renderProducts(); }
+        function applyFilters() { renderProducts(); }
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('stockFilter').value = 'all';
+            filterCategory('All');
+        }
+
+        // Admin & Stock Sync Features
+        function toggleAdminMode() {
+            adminMode = !adminMode;
+            document.getElementById('adminBar').classList.toggle('hidden', !adminMode);
+            document.getElementById('adminBtnText').innerText = adminMode ? 'Exit Admin Mode' : 'Owner Login';
+            renderProducts();
+        }
+
+        function toggleStockStatus(id) {
+            const item = products.find(p => p.id === id);
+            if (item) {
+                item.inStock = !item.inStock;
+                saveLocalInventory();
+                renderProducts();
+            }
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Are you sure you want to remove this suit item?")) {
+                products = products.filter(p => p.id !== id);
+                saveLocalInventory();
+                renderProducts();
+            }
+        }
+
+        function openAddProductModal() { document.getElementById('addProductModal').classList.remove('hidden'); }
+        function closeAddProductModal() { document.getElementById('addProductModal').classList.add('hidden'); }
+
+        function saveNewProduct(e) {
+            e.preventDefault();
+            const newItem = {
+                id: 'item-' + Date.now(),
+                title: document.getElementById('newTitle').value,
+                category: document.getElementById('newCategory').value,
+                price: parseFloat(document.getElementById('newPrice').value) || 0.00,
+                image: document.getElementById('newImage').value || 'https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?auto=format&fit=crop&w=600&q=80',
+                inStock: document.getElementById('newStock').value === 'true',
+                description: document.getElementById('newDesc').value || ''
+            };
+            products.unshift(newItem);
+            saveLocalInventory();
+            closeAddProductModal();
+            document.getElementById('addProductForm').reset();
+            renderProducts();
+        }
+
+        function exportJSON() {
+            const jsonStr = JSON.stringify(products, null, 2);
+            document.getElementById('jsonOutput').value = jsonStr;
+            document.getElementById('exportModal').classList.remove('hidden');
+        }
+
+        function closeExportModal() { document.getElementById('exportModal').classList.add('hidden'); }
+
+        function copyToClipboard() {
+            const copyText = document.getElementById("jsonOutput");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied products.json code to clipboard! Paste it directly into your GitHub repository file.");
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const item = products.find(p => p.id === id);
+            if (item && item.inStock) {
+                cart.push(item);
+                updateCartUI();
+                toggleCartModal(true);
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            const list = document.getElementById('cartItemsList');
+            const subtotalEl = document.getElementById('cartSubtotal');
+
+            if (cart.length === 0) {
+                list.innerHTML = `<p class="text-slate-500 text-xs text-center py-8">Your cart is empty.</p>`;
+                subtotalEl.innerText = `$0.00`;
+                return;
+            }
+
+            let total = 0;
+            list.innerHTML = '';
+            cart.forEach((item, index) => {
+                total += item.price;
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between p-2.5 bg-slate-900 border border-brand-border rounded-xl text-xs";
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image}" class="w-10 h-10 rounded-lg object-cover bg-slate-800">
+                        <div>
+                            <p class="font-bold text-white leading-tight">${item.title}</p>
+                            <p class="text-brand-accent font-semibold">$${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-slate-500 hover:text-red-400 p-1"><i class="fa-solid fa-trash"></i></button>
+                `;
+                list.appendChild(row);
+            });
+
+            subtotalEl.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        function checkoutAlert() {
+            if (cart.length === 0) return alert("Your cart is empty!");
+            alert("Redirecting to secure checkout platform...");
+        }
+
+        // Initial Load
+        renderProducts();
+    </script>
+</body>
+</html>
