@@ -53,7 +53,6 @@
     
     .hidden { display: none !important; }
     .error-msg { color: var(--danger); font-size: 0.85rem; margin-top: 8px; }
-    .hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -70,15 +69,15 @@
       <form id="addItemForm" class="grid-form" onsubmit="handleAddProduct(event)">
         <div>
           <label>Item Name</label>
-          <input type="text" id="itemName" required placeholder="e.g. Spider-Man Action Figure">
+          <input type="text" id="itemName" required placeholder="Item name...">
         </div>
         <div>
           <label>Price ($)</label>
-          <input type="number" id="itemPrice" step="0.01" min="0" required placeholder="19.99">
+          <input type="number" id="itemPrice" step="0.01" min="0" required placeholder="0.00">
         </div>
         <div>
           <label>Stock Qty</label>
-          <input type="number" id="itemStock" min="0" required placeholder="10">
+          <input type="number" id="itemStock" min="0" required placeholder="0">
         </div>
         <button type="submit" class="btn">Add Item</button>
       </form>
@@ -113,7 +112,6 @@
         <div>
           <label>Master Password</label>
           <input type="password" id="passwordInput" required>
-          <div class="hint">Password suggestion: <b>StoreOwner2026!</b></div>
         </div>
         <div id="loginError" class="error-msg hidden">Incorrect password. Try again.</div>
         <button type="submit" class="btn" style="margin-top: 8px;">Login</button>
@@ -123,8 +121,8 @@
   </div>
 
   <script>
-    // Configuration
-    const MASTER_PASSWORD = "StoreOwner2026!"; // Strong yet easy to remember
+    // Configuration - Change this password to whatever you'd like
+    const MASTER_PASSWORD = "StoreOwner2026!"; 
     let isLoggedIn = false;
     let products = [];
 
