@@ -17,25 +17,25 @@
 .section{padding:72px 22px}.section.alt{background:#fff}.section-head{max-width:1240px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}.section-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}.section h2{font-size:40px;letter-spacing:-.04em;margin:6px 0}.section-sub{color:var(--muted);max-width:600px;line-height:1.6;margin:0}.viewall{font-weight:800;color:var(--accent-2)}
 
 /* 4 columns layout for 16 category tiles */
-.category-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cat{min-height:160px;border-radius:20px;padding:20px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(17,24,39,.10);transition:transform .2s ease}.cat:hover{transform:translateY(-4px)}.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.45))}.cat .label{position:relative;z-index:1}.cat b{font-size:20px;display:block;line-height:1.2}.cat span{font-size:12px;opacity:.85;margin-top:4px;display:block}
+.category-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cat{min-height:220px;border-radius:20px;padding:20px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(17,24,39,.10);transition:transform .2s ease;background-size:cover;background-position:center top}.cat:hover{transform:translateY(-4px)}.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.8) 100%);z-index:0}.cat .label{position:relative;z-index:1;text-shadow:0 2px 8px rgba(0,0,0,0.8)}.cat b{font-size:20px;display:block;line-height:1.2}.cat span{font-size:12px;opacity:.95;margin-top:4px;display:block}
 
-/* Custom Color Themes for 16 Categories */
-.c-deadpool{background:linear-gradient(150deg,#800913,#330005)}
-.c-mando{background:linear-gradient(150deg,#5a6577,#212733)}
-.c-ahsoka{background:linear-gradient(150deg,#247ba0,#0d324d)}
-.c-wolverine{background:linear-gradient(150deg,#d48c00,#3a2500)}
-.c-powerrangers{background:linear-gradient(150deg,#d62828,#003049)}
-.c-spiderman{background:linear-gradient(150deg,#ba181b,#003049)}
-.c-gotg{background:linear-gradient(150deg,#6b2d5c,#1f0c1d)}
-.c-starwars{background:linear-gradient(150deg,#1c2541,#0b132b)}
-.c-f4{background:linear-gradient(150deg,#0077b6,#03045e)}
-.c-theboys{background:linear-gradient(150deg,#3a3a3a,#111111)}
-.c-cap{background:linear-gradient(150deg,#1d3557,#081c36)}
-.c-thor{background:linear-gradient(150deg,#4a4e69,#22223b)}
-.c-blackwidow{background:linear-gradient(150deg,#2b2d42,#11121c)}
-.c-daredevil{background:linear-gradient(150deg,#9e2a2b,#3e0c0d)}
-.c-scarlet{background:linear-gradient(150deg,#b01432,#4a000e)}
-.c-whatif{background:linear-gradient(150deg,#6a040f,#370617)}
+/* Custom Color Themes & Image Backgrounds for Categories */
+.c-deadpool{background-image:linear-gradient(150deg,rgba(128,9,19,0.4),rgba(51,0,5,0.85))}
+.c-mando{background-image:linear-gradient(150deg,rgba(90,101,119,0.4),rgba(33,39,51,0.85))}
+.c-ahsoka{background-image:linear-gradient(150deg,rgba(36,123,160,0.4),rgba(13,50,77,0.85))}
+.c-wolverine{background-image:linear-gradient(150deg,rgba(212,140,0,0.4),rgba(58,37,0,0.85))}
+.c-powerrangers{background-image:linear-gradient(150deg,rgba(214,40,40,0.4),rgba(0,48,73,0.85))}
+.c-spiderman{background-image:linear-gradient(150deg,rgba(186,24,27,0.4),rgba(0,48,73,0.85))}
+.c-gotg{background-image:url('Guardians-of-the-Galaxy-new.webp')}
+.c-starwars{background-image:url('Star-Wars_1.webp')}
+.c-f4{background-image:url('f4B.webp')}
+.c-theboys{background-image:url('tb283.webp')}
+.c-cap{background-image:url('Captain-America.webp')}
+.c-thor{background-image:url('Thor_1.webp')}
+.c-blackwidow{background-image:url('bw0727.webp')}
+.c-daredevil{background-image:url('dd2026.webp')}
+.c-scarlet{background-image:url('sw0727.webp')}
+.c-whatif{background-image:url('wi0727.webp')}
 
 .products{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{background:#fff;border:1px solid var(--line);border-radius:21px;overflow:hidden;position:relative;transition:.22s ease}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.prod-art{height:240px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.prod-art:before{content:"";width:160px;height:200px;border-radius:45% 45% 22% 22%;background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(255,255,255,.12));filter:blur(.2px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 20px 35px rgba(0,0,0,.16)}.prod-art .tag{position:absolute;top:14px;left:14px;background:#fff;padding:7px 9px;border-radius:99px;font-size:10px;font-weight:900;letter-spacing:.08em}.product-body{padding:17px 17px 18px}.product h3{margin:0;font-size:17px}.meta{font-size:12px;color:var(--muted);margin:7px 0 13px}.row-between{display:flex;justify-content:space-between;align-items:center;gap:10px}.price{font-size:19px;font-weight:900}.from{font-size:11px;color:var(--muted)}.small-btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:800;cursor:pointer}.small-btn:hover{background:var(--surface-2)}
 .btn-danger{background:var(--accent-3);color:#fff;border:none;margin-top:10px;width:100%;padding:8px;border-radius:8px;font-weight:800;cursor:pointer;}
@@ -66,7 +66,7 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
 .hidden{display:none !important}
 
 @media (max-width:980px){.header-inner{grid-template-columns:1fr auto}.search{grid-column:1/-1;order:3;padding-bottom:14px}.header-inner{padding-bottom:0}.perks-inner{grid-template-columns:repeat(2,1fr)}.perk:nth-child(2){border-right:0}.category-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.showcase{grid-template-columns:1fr}.news-wrap{flex-direction:column;align-items:stretch}.news-form{min-width:0}.hero-card{display:none}.hero-content{padding:58px 32px}.nav-inner{overflow:auto}.owner-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:620px){.topline-inner{display:none}.topline{height:0;border:0}.header-inner{min-height:76px;padding:8px 16px}.brand-name{font-size:18px}.brand-mark{width:46px;height:46px}.actions .hide-mobile{display:none}.mobile-toggle{display:block}.nav{display:none}.nav.open{display:block}.nav.open .nav-inner{height:auto;flex-wrap:wrap;padding:8px 14px 14px}.hero{padding:16px}.hero-wrap{min-height:500px}.hero-content{padding:48px 25px}.hero h1{font-size:52px}.hero p{font-size:16px}.perks-inner{grid-template-columns:1fr}.perk{border-right:0;border-bottom:1px solid var(--line)}.perk:last-child{border-bottom:0}.section{padding:54px 16px}.section-head{align-items:flex-start;flex-direction:column}.category-grid{grid-template-columns:1fr}.cat{min-height:140px}.products{grid-template-columns:1fr}.prod-art{height:280px}.feature-main,.feature-side{padding:28px}.feature-main h3{font-size:34px}.news-form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column}.search input{padding-right:82px}.brand-tag{display:none}.owner-grid{grid-template-columns:1fr}}
+@media (max-width:620px){.topline-inner{display:none}.topline{height:0;border:0}.header-inner{min-height:76px;padding:8px 16px}.brand-name{font-size:18px}.brand-mark{width:46px;height:46px}.actions .hide-mobile{display:none}.mobile-toggle{display:block}.nav{display:none}.nav.open{display:block}.nav.open .nav-inner{height:auto;flex-wrap:wrap;padding:8px 14px 14px}.hero{padding:16px}.hero-wrap{min-height:500px}.hero-content{padding:48px 25px}.hero h1{font-size:52px}.hero p{font-size:16px}.perks-inner{grid-template-columns:1fr}.perk{border-right:0;border-bottom:1px solid var(--line)}.perk:last-child{border-bottom:0}.section{padding:54px 16px}.section-head{align-items:flex-start;flex-direction:column}.category-grid{grid-template-columns:1fr}.cat{min-height:160px}.products{grid-template-columns:1fr}.prod-art{height:280px}.feature-main,.feature-side{padding:28px}.feature-main h3{font-size:34px}.news-form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column}.search input{padding-right:82px}.brand-tag{display:none}.owner-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -143,7 +143,7 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
     <a class="viewall" href="#products">View all →</a>
   </div>
 
-  <!-- 16 Categories Grid -->
+  <!-- 16 Categories Grid with Image Backgrounds -->
   <div class="category-grid">
     <a class="cat c-deadpool" href="#products"><span class="label"><b>Deadpool</b><span>Suits, Katana Mounts & Accessories</span></span></a>
     <a class="cat c-mando" href="#products"><span class="label"><b>Mandalorian</b><span>Beskar Armor, Helmets & Gear</span></span></a>
