@@ -1,222 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storefront & Inventory Management</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --accent: #38bdf8;
-      --accent-hover: #0284c7;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --danger: #ef4444;
-      --border: #334155;
-      --card-border: #475569;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CosplayTime™ — Suits, Props & Custom Builds</title>
+<meta name="description" content="CosplayTime™ creates premium cosplay suits, props, faceshells and DIY kits with studio-quality finishing and custom fitting.">
+<style>
+:root{--bg:#f5f6fb;--surface:#fff;--surface-2:#eef0f7;--ink:#111827;--muted:#667085;--line:#dfe3ec;--accent:#ea9b22;--accent-2:#173da5;--accent-3:#ef3340;--shadow:0 18px 50px rgba(17,24,39,.10);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.announcement{background:#141827;color:#fff;font-size:12px;letter-spacing:.11em;text-transform:uppercase;padding:10px 16px;text-align:center}.announcement b{color:#ffbd4a}
+.topline{border-bottom:1px solid var(--line);background:#fff}.topline-inner,.header-inner,.nav-inner,.container{max-width:1240px;margin:auto;padding:0 22px}.topline-inner{height:38px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px}.top-links{display:flex;gap:18px}.header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 4px 20px rgba(17,24,39,.04)}.header-inner{min-height:92px;display:grid;grid-template-columns:230px 1fr auto;gap:24px;align-items:center}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.02em}.brand-mark{width:54px;height:54px;overflow:hidden;border-radius:15px;background:#dfe0f0;display:grid;place-items:center}.brand-mark img{width:100%;height:100%;object-fit:contain;object-position:center;transform:none}.brand-name{font-size:21px;line-height:1}.brand-tag{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:700}
+.search{position:relative}.search input{width:100%;height:46px;border:1px solid var(--line);background:var(--surface-2);border-radius:14px;padding:0 100px 0 44px;outline:none}.search input:focus{border-color:#aeb8cf;background:#fff;box-shadow:0 0 0 4px rgba(23,61,165,.08)}.search-icon{position:absolute;left:15px;top:12px;color:#68738b}.search-btn{position:absolute;right:6px;top:6px;height:34px;border:0;border-radius:10px;background:#111827;color:#fff;padding:0 14px;font-weight:700;cursor:pointer}.actions{display:flex;align-items:center;gap:10px}.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:#fff;cursor:pointer;position:relative}.badge{position:absolute;right:-4px;top:-5px;min-width:18px;height:18px;border-radius:10px;background:var(--accent-3);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center;padding:0 5px}
+.nav{border-top:1px solid #eef0f4}.nav-inner{height:52px;display:flex;align-items:center;gap:4px;overflow:auto}.nav a,.nav button{border:0;background:transparent;padding:10px 14px;border-radius:10px;font-size:14px;font-weight:750;white-space:nowrap;cursor:pointer}.nav a:hover,.nav button:hover{background:var(--surface-2);color:var(--accent-2)}.nav .hot{color:var(--accent-3)}.nav .owner-link{color:var(--accent-2);margin-left:auto;}
+.hero{padding:26px 22px 24px}.hero-wrap{max-width:1240px;margin:auto;min-height:500px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(125deg,#121a35 0%,#182e61 48%,#39204e 100%);box-shadow:var(--shadow)}.hero-glow{position:absolute;inset:-20% auto auto 42%;width:55%;height:90%;background:radial-gradient(circle,rgba(255,184,74,.25),transparent 63%);filter:blur(8px)}.hero-content{position:relative;z-index:1;padding:70px 58px;max-width:760px;color:#fff}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}.eyebrow span{width:7px;height:7px;background:#ffb742;border-radius:50%;box-shadow:0 0 14px #ffb742}.hero h1{font-size:clamp(46px,7vw,84px);line-height:.92;letter-spacing:-.055em;margin:20px 0 18px}.hero p{font-size:18px;line-height:1.6;color:#dbe1ef;max-width:620px}.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:0;border-radius:13px;padding:14px 19px;font-weight:850;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.btn.primary{background:#ffb32f;color:#151515}.btn.secondary{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18)}.hero-orbit{position:absolute;right:8%;bottom:-22px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,255,255,.15)}.hero-card{position:absolute;right:10%;top:70px;width:260px;background:#fff;border-radius:22px;padding:18px;box-shadow:0 25px 60px rgba(0,0,0,.24);transform:rotate(4deg)}.hero-card .mini-art{height:170px;border-radius:15px;background:linear-gradient(150deg,#b91d32,#1d4fb6 65%,#131b38);position:relative;overflow:hidden}.mini-art:before{content:"SUIT // 01";position:absolute;left:15px;top:14px;color:#fff;font-size:11px;font-weight:900;letter-spacing:.13em}.mini-art:after{content:"COSPLAYTIME";position:absolute;right:12px;bottom:10px;color:rgba(255,255,255,.7);font-size:11px;font-weight:800;letter-spacing:.1em}.hero-card h4{margin:14px 0 4px}.hero-card p{margin:0;color:var(--muted);font-size:12px}
+.perks{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.perks-inner{max-width:1240px;margin:auto;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr)}.perk{padding:22px 20px;display:flex;gap:12px;align-items:flex-start;border-right:1px solid var(--line)}.perk:last-child{border-right:0}.perk-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--surface-2);font-weight:900;color:var(--accent-2)}.perk strong{display:block;font-size:14px}.perk span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.section{padding:72px 22px}.section.alt{background:#fff}.section-head{max-width:1240px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}.section-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}.section h2{font-size:40px;letter-spacing:-.04em;margin:6px 0}.section-sub{color:var(--muted);max-width:600px;line-height:1.6;margin:0}.viewall{font-weight:800;color:var(--accent-2)}
+.category-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.cat{min-height:180px;border-radius:20px;padding:18px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(17,24,39,.10);transition:transform .2s ease}.cat:hover{transform:translateY(-4px)}.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.36))}.cat .label{position:relative;z-index:1}.cat b{font-size:19px;display:block}.cat span{font-size:11px;opacity:.8}.c1{background:linear-gradient(150deg,#263d90,#10182b)}.c2{background:linear-gradient(150deg,#e74661,#60162f)}.c3{background:linear-gradient(150deg,#f0a420,#71400a)}.c4{background:linear-gradient(150deg,#3447b6,#111d55)}.c5{background:linear-gradient(150deg,#2b7c67,#122e30)}.c6{background:linear-gradient(150deg,#b2572e,#3d1d18)}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); padding: 24px; display: flex; justify-content: center; }
-    .container { max-width: 1000px; width: 100%; }
-    
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-    h1 { font-size: 1.8rem; color: var(--accent); }
-    
-    .btn { background: var(--accent); color: #000; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-    .btn:hover { background: var(--accent-hover); color: #fff; }
-    .btn-danger { background: var(--danger); color: #fff; }
-    .btn-danger:hover { background: #dc2626; }
+.products{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{background:#fff;border:1px solid var(--line);border-radius:21px;overflow:hidden;position:relative;transition:.22s ease}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.prod-art{height:240px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.prod-art:before{content:"";width:160px;height:200px;border-radius:45% 45% 22% 22%;background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(255,255,255,.12));filter:blur(.2px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 20px 35px rgba(0,0,0,.16)}.prod-art .tag{position:absolute;top:14px;left:14px;background:#fff;padding:7px 9px;border-radius:99px;font-size:10px;font-weight:900;letter-spacing:.08em}.product-body{padding:17px 17px 18px}.product h3{margin:0;font-size:17px}.meta{font-size:12px;color:var(--muted);margin:7px 0 13px}.row-between{display:flex;justify-content:space-between;align-items:center;gap:10px}.price{font-size:19px;font-weight:900}.from{font-size:11px;color:var(--muted)}.small-btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:800;cursor:pointer}.small-btn:hover{background:var(--surface-2)}
+.btn-danger{background:var(--accent-3);color:#fff;border:none;margin-top:10px;width:100%;padding:8px;border-radius:8px;font-weight:800;cursor:pointer;}
 
-    /* Store Grid (Original UI Layout) */
-    .section-title { font-size: 1.4rem; margin-bottom: 16px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
-    .product-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-    .product-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .product-card .price { font-size: 1.25rem; font-weight: bold; color: var(--accent); margin-bottom: 8px; }
-    .product-card .stock { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
-    
-    .status-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-    .in-stock { background: #166534; color: #4ade80; }
-    .out-stock { background: #991b1b; color: #fca5a5; }
+.feature{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.feature-main,.feature-side{border-radius:26px;overflow:hidden}.feature-main{min-height:390px;background:linear-gradient(135deg,#121729,#273d8d 50%,#e28d2c);color:#fff;padding:48px;position:relative}.feature-main:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,.14);right:-90px;bottom:-180px}.feature-main h3{font-size:43px;letter-spacing:-.045em;max-width:600px;margin:10px 0 12px}.feature-main p{max-width:560px;color:#d9dfed;line-height:1.65}.feature-side{background:#eceef5;padding:32px;display:flex;flex-direction:column;justify-content:center}.step{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid #d9dce6}.step:last-child{border:0}.step-num{width:32px;height:32px;border-radius:10px;background:#fff;display:grid;place-items:center;font-weight:900;color:var(--accent-2)}.step h4{margin:0 0 4px}.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.showcase{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.show-card{min-height:250px;border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:end;color:#fff;position:relative;overflow:hidden}.show-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.64) 100%)}.show-card>div{position:relative;z-index:1}.show1{background:linear-gradient(135deg,#1d2957,#c34d6a)}.show2{background:linear-gradient(135deg,#233d35,#a27d44)}.show3{background:linear-gradient(135deg,#171824,#7553a5)}.show-card small{opacity:.75;text-transform:uppercase;letter-spacing:.1em}.show-card h3{margin:7px 0 5px;font-size:24px}.show-card p{margin:0;font-size:13px;color:#e6e8ee}
+.newsletter{padding:0 22px 72px}.news-wrap{max-width:1240px;margin:auto;border-radius:24px;padding:36px 40px;background:#111827;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:30px}.news-wrap h3{margin:0 0 6px;font-size:30px}.news-wrap p{margin:0;color:#bdc4d4}.news-form{display:flex;gap:8px;min-width:420px}.news-form input{flex:1;height:48px;border-radius:13px;border:1px solid #3b4354;background:#1a2232;color:#fff;padding:0 15px}.news-form button{height:48px;border:0;border-radius:13px;background:#ffb32f;padding:0 17px;font-weight:900}
+footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px}.foot-brand{font-weight:900;color:#fff;font-size:21px}.foot-col h4{color:#fff;margin:0 0 14px}.foot-col a{display:block;color:#9ea7b8;font-size:13px;margin:9px 0}.foot-col a:hover{color:#fff}.foot-note{color:#7d879a;line-height:1.6;font-size:12px;max-width:340px;margin-top:12px}.copyright{max-width:1240px;margin:35px auto 0;border-top:1px solid #262d3d;padding-top:18px;color:#768095;font-size:11px;display:flex;justify-content:space-between;gap:15px}
+.toast{position:fixed;right:22px;bottom:22px;background:#111827;color:#fff;padding:13px 16px;border-radius:13px;box-shadow:var(--shadow);opacity:0;transform:translateY(14px);pointer-events:none;transition:.24s;z-index:50;font-size:13px}.toast.show{opacity:1;transform:translateY(0)}.mobile-toggle{display:none}.mobile-menu{display:none}
 
-    /* Owner Controls Panel */
-    .panel { background: var(--card-bg); padding: 24px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 32px; }
-    .panel h2 { font-size: 1.3rem; margin-bottom: 16px; }
-    .grid-form { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; align-items: end; }
+/* Owner Control Panel & Modal Styles */
+.owner-panel{max-width:1240px;margin:0 auto 30px;background:var(--surface);border:2px dashed var(--accent);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.owner-panel h3{margin:0 0 16px;color:var(--ink);font-size:20px}
+.owner-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:12px;align-items:end}
+.owner-grid div{display:flex;flex-direction:column;gap:6px}
+.owner-grid label{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase}
+.owner-grid input,.owner-grid select{height:42px;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:var(--surface-2)}
 
-    /* Modal Styling */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; z-index: 100; }
-    .modal.active { display: flex; }
-    .modal-content { background: var(--card-bg); padding: 24px; border-radius: 8px; border: 1px solid var(--border); width: 100%; max-width: 380px; }
-    .modal-content h2 { margin-bottom: 16px; }
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(17,24,39,0.7);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal-box{background:#fff;padding:32px;border-radius:var(--radius);width:100%;max-width:400px;box-shadow:var(--shadow)}
+.modal-box h3{margin:0 0 8px;font-size:22px}
+.modal-box p{margin:0 0 20px;color:var(--muted);font-size:13px}
+.modal-box input{width:100%;height:46px;border:1px solid var(--line);border-radius:12px;padding:0 14px;margin-bottom:16px;background:var(--surface-2)}
+.modal-actions{display:flex;gap:10px}
+.modal-actions button{flex:1;height:42px;border-radius:10px;font-weight:800;cursor:pointer;border:0}
+.error-msg{color:var(--accent-3);font-size:12px;margin-bottom:12px;display:none}
 
-    form { display: flex; flex-direction: column; gap: 12px; }
-    label { font-size: 0.85rem; color: var(--text-muted); }
-    input { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 10px; border-radius: 6px; font-size: 1rem; }
-    input:focus { outline: 1px solid var(--accent); }
+.hidden{display:none !important}
 
-    .hidden { display: none !important; }
-    .error-msg { color: var(--danger); font-size: 0.85rem; margin-top: 4px; }
-    .card-actions { display: flex; gap: 8px; margin-top: 12px; }
-  </style>
+@media (max-width:980px){.header-inner{grid-template-columns:1fr auto}.search{grid-column:1/-1;order:3;padding-bottom:14px}.header-inner{padding-bottom:0}.perks-inner{grid-template-columns:repeat(2,1fr)}.perk:nth-child(2){border-right:0}.category-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.showcase{grid-template-columns:1fr}.news-wrap{flex-direction:column;align-items:stretch}.news-form{min-width:0}.hero-card{display:none}.hero-content{padding:58px 32px}.nav-inner{overflow:auto}.owner-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.topline-inner{display:none}.topline{height:0;border:0}.header-inner{min-height:76px;padding:8px 16px}.brand-name{font-size:18px}.brand-mark{width:46px;height:46px}.actions .hide-mobile{display:none}.mobile-toggle{display:block}.nav{display:none}.nav.open{display:block}.nav.open .nav-inner{height:auto;flex-wrap:wrap;padding:8px 14px 14px}.hero{padding:16px}.hero-wrap{min-height:500px}.hero-content{padding:48px 25px}.hero h1{font-size:52px}.hero p{font-size:16px}.perks-inner{grid-template-columns:1fr}.perk{border-right:0;border-bottom:1px solid var(--line)}.perk:last-child{border-bottom:0}.section{padding:54px 16px}.section-head{align-items:flex-start;flex-direction:column}.category-grid{grid-template-columns:repeat(2,1fr)}.cat{min-height:155px}.products{grid-template-columns:1fr}.prod-art{height:280px}.feature-main,.feature-side{padding:28px}.feature-main h3{font-size:34px}.news-form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column}.search input{padding-right:82px}.brand-tag{display:none}.owner-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-
-  <div class="container">
-    <header>
-      <h1>Storefront</h1>
-      <button id="authBtn" class="btn" onclick="openLogin()">Owner Login</button>
-    </header>
-
-    <!-- Owner Dashboard Form -->
-    <div id="ownerPanel" class="panel hidden">
-      <h2>Add New Stock</h2>
-      <form id="addItemForm" class="grid-form" onsubmit="handleAddProduct(event)">
-        <div>
-          <label>Item Name</label>
-          <input type="text" id="itemName" required placeholder="Item name...">
-        </div>
-        <div>
-          <label>Price ($)</label>
-          <input type="number" id="itemPrice" step="0.01" min="0" required placeholder="0.00">
-        </div>
-        <div>
-          <label>Stock Qty</label>
-          <input type="number" id="itemStock" min="0" required placeholder="0">
-        </div>
-        <button type="submit" class="btn">Add Item</button>
-      </form>
+<div class="announcement">FIRST DROP: <b>10% OFF</b> select custom builds · code <b>TIME10</b></div>
+<div class="topline"><div class="topline-inner"><span>Premium cosplay • Props • DIY kits</span><div class="top-links"><a href="#about">About</a><a href="#showcase">Customer Gallery</a><a href="#contact">Contact</a></div></div></div>
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="CosplayTime home"><span class="brand-mark"><img src="cosplaytime-logo-original.png" alt="CosplayTime logo"></span><span><span class="brand-name">COSPLAYTIME™</span><span class="brand-tag">Suits · Props · Builds</span></span></a>
+    <form class="search" onsubmit="return doSearch(event)"><span class="search-icon">⌕</span><input id="search" placeholder="Search suits, props, characters..." aria-label="Search"><button class="search-btn">Search</button></form>
+    <div class="actions"><button class="icon-btn mobile-toggle" onclick="toggleNav()">☰</button><button class="icon-btn hide-mobile" onclick="openLoginModal()">◎</button><button class="icon-btn" onclick="notify('Your cart is empty.')">🛒<span class="badge" id="cartCount">0</span></button></div>
+  </div>
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#top">Home</a><a href="#new">New Arrivals</a><button onclick="scrollToId('suits')">Suits ▾</button><button onclick="scrollToId('props')">Props ▾</button><a href="#faceshells">Faceshells</a><a href="#diy">DIY Kits</a><a class="hot" href="#custom">Custom Tailoring</a><a href="#showcase">Cosplay Gallery</a><a href="#about">About</a>
+      <button class="owner-link" id="ownerAuthBtn" onclick="toggleOwnerAuth()">Owner Login</button>
     </div>
+  </nav>
+</header>
 
-    <!-- Store Front Grid (Original UI Structure) -->
-    <h2 class="section-title">Available Products</h2>
-    <div id="productGrid" class="product-grid">
-      <!-- Cards render here dynamically -->
+<main id="top">
+<section class="hero" id="new"><div class="hero-wrap"><div class="hero-glow"></div><div class="hero-content"><div class="eyebrow"><span></span> Built for the spotlight</div><h1>Suit up.<br>Make it yours.</h1><p>Movie-inspired cosplay suits, display-ready props, faceshells and DIY builds — designed with attention to paneling, fit and finish.</p><div class="hero-ctas"><a class="btn primary" href="#products">Shop the collection →</a><a class="btn secondary" href="#custom">Explore custom fitting</a></div></div><div class="hero-orbit"></div><div class="hero-card"><div class="mini-art"></div><h4>Build of the month</h4><p>Replica-grade finish · Custom sizing · Optional add-ons</p></div></div></section>
+<section class="perks"><div class="perks-inner"><div class="perk"><div class="perk-icon">✦</div><div><strong>Replica-ready detail</strong><span>Layered panels & clean finishing</span></div></div><div class="perk"><div class="perk-icon">↔</div><div><strong>Custom sizing</strong><span>Fit-first ordering & tailoring</span></div></div><div class="perk"><div class="perk-icon">⌁</div><div><strong>Build options</strong><span>Ready-made or DIY components</span></div></div><div class="perk"><div class="perk-icon">◷</div><div><strong>Support</strong><span>Real people, practical answers</span></div></div></div></section>
+
+<section class="section alt" id="products">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Featured Collection</div>
+      <h2>Fresh from the workbench.</h2>
+      <p class="section-sub">Browse available items in stock, or log in as the owner to update the catalog.</p>
     </div>
   </div>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>Owner Access</h2>
-      <form onsubmit="handleLogin(event)">
-        <div>
-          <label>Master Password</label>
-          <input type="password" id="passwordInput" required autofocus>
-        </div>
-        <div id="loginError" class="error-msg hidden">Incorrect password. Access denied.</div>
-        <button type="submit" class="btn" style="margin-top: 8px;">Login</button>
-        <button type="button" class="btn btn-danger" onclick="closeLogin()">Cancel</button>
-      </form>
-    </div>
+  <!-- Owner Management Dashboard (Hidden until logged in) -->
+  <div id="ownerPanel" class="owner-panel hidden">
+    <h3>🛠️ Owner Controls: Add Stock & Pricing</h3>
+    <form class="owner-grid" onsubmit="handleAddProduct(event)">
+      <div>
+        <label>Product Name</label>
+        <input type="text" id="pName" required placeholder="e.g. Custom Web-Shooter Set">
+      </div>
+      <div>
+        <label>Price ($)</label>
+        <input type="number" id="pPrice" step="0.01" min="0" required placeholder="149.00">
+      </div>
+      <div>
+        <label>Stock Qty</label>
+        <input type="number" id="pStock" min="0" required placeholder="5">
+      </div>
+      <div>
+        <label>Tag</label>
+        <select id="pTag">
+          <option value="NEW">NEW</option>
+          <option value="REPLICA">REPLICA</option>
+          <option value="POPULAR">POPULAR</option>
+          <option value="LIMITED">LIMITED</option>
+        </select>
+      </div>
+      <button type="submit" class="btn primary" style="height: 42px;">Add to Stock</button>
+    </form>
   </div>
 
-  <script>
-    const MASTER_PASSWORD = "StoreOwner2026!"; 
-    let isLoggedIn = false;
-    let products = [];
+  <!-- Live Dynamic Products Grid -->
+  <div class="products" id="productGrid">
+    <!-- Products render here -->
+  </div>
+</section>
 
-    function openLogin() {
-      if (isLoggedIn) {
-        logout();
-      } else {
-        document.getElementById('loginModal').classList.add('active');
-        document.getElementById('passwordInput').value = '';
-        document.getElementById('loginError').classList.add('hidden');
-      }
-    }
+<section class="section" id="suits"><div class="section-head"><div><div class="section-kicker">Browse by world</div><h2>Find your next character.</h2><p class="section-sub">Explore curated categories for the kind of build you want to wear, display or finish yourself.</p></div><a class="viewall" href="#products">View all →</a></div><div class="category-grid"><a class="cat c1" href="#products"><span class="label"><b>Superhero</b><span>Modern & comic-inspired</span></span></a><a class="cat c2" href="#products"><span class="label"><b>Movie & TV</b><span>Screen-inspired builds</span></span></a><a class="cat c3" href="#products"><span class="label"><b>Game Worlds</b><span>Armor, suits & gear</span></span></a><a class="cat c4" href="#products"><span class="label"><b>Spider Suits</b><span>Classic to cinematic</span></span></a><a class="cat c5" href="#products"><span class="label"><b>Power & Armor</b><span>Hard parts & accessories</span></span></a><a class="cat c6" href="#products"><span class="label"><b>Original Builds</b><span>Make your own legend</span></span></a></div></section>
+<section class="section" id="custom"><div class="feature"><div class="feature-main"><div class="section-kicker" style="color:#ffd17b">Custom Studio</div><h3>Get fitted like the suit was made for you.</h3><p>Choose a base build, submit your measurements, and add tailoring options for a closer fit. For larger projects, book a fitting appointment and discuss the build before production.</p><a class="btn primary" href="#contact">Start a custom request →</a></div><div class="feature-side"><div class="section-kicker">How it works</div><div class="step"><div class="step-num">1</div><div><h4>Choose your build</h4><p>Pick a ready-to-ship piece, replica-grade suit or DIY route.</p></div></div><div class="step"><div class="step-num">2</div><div><h4>Share your measurements</h4><p>Use the guided fitting form to give the studio what it needs.</p></div></div><div class="step"><div class="step-num">3</div><div><h4>Review & tailor</h4><p>Confirm sizing, add-ons and finishing details before production.</p></div></div><div class="step"><div class="step-num">4</div><div><h4>Suit up</h4><p>Receive your build ready for the convention floor, screen test or display.</p></div></div></div></div></section>
+<section class="section alt" id="faceshells"><div class="section-head"><div><div class="section-kicker">Built, not boxed</div><h2>More than just the suit.</h2><p class="section-sub">Pair your costume with purpose-built accessories — from faceshells to 3D-printed props and DIY upgrade kits.</p></div></div><div class="showcase" id="props"><article class="show-card show1"><div><small>Faceshells</small><h3>Precision-fit headshells</h3><p>Designed to pair cleanly with masks, lenses and suit openings.</p></div></article><article class="show-card show2" id="diy"><div><small>Props</small><h3>3D-printed hero gear</h3><p>Display pieces, wearable accessories and modular parts.</p></div></article><article class="show-card"><div><small>DIY kits</small><h3>Build it yourself</h3><p>Cut, finish and assemble with a guided parts approach.</p></div></article></div></section>
+<section class="newsletter"><div class="news-wrap"><div><h3>Get first access to new drops.</h3><p>New suits, props, commissions and studio updates in one clean email.</p></div><form class="news-form" onsubmit="return subscribe(event)"><input type="email" id="email" placeholder="Email address" required><button>Join list</button></form></div></section>
+</main>
 
-    function closeLogin() {
-      document.getElementById('loginModal').classList.remove('active');
-    }
+<footer id="contact"><div class="footer-grid"><div><div class="foot-brand">COSPLAYTIME™</div><div class="foot-note">Premium cosplay suits, props, faceshells and DIY kits. A polished storefront concept inspired by the familiar category-first layout of legacy cosplay shops, but rebuilt with original branding, copy and visual direction.</div></div><div class="foot-col"><h4>Shop</h4><a href="#suits">Suits</a><a href="#props">Props</a><a href="#faceshells">Faceshells</a><a href="#diy">DIY Kits</a></div><div class="foot-col"><h4>Studio</h4><a href="#custom">Custom Tailoring</a><a href="#showcase">Customer Gallery</a><a href="#about">About</a><a href="#contact">Contact</a></div><div class="foot-col"><h4>Help</h4><a href="#contact">Size Guide</a><a href="#contact">Shipping</a><a href="#contact">Returns</a><a href="#contact">FAQ</a></div></div><div class="copyright"><span>© 2026 CosplayTime™. Demo storefront.</span><span>Made for suits, stories & the spotlight.</span></div></footer>
 
-    function handleLogin(e) {
-      e.preventDefault();
-      const input = document.getElementById('passwordInput').value;
-      
-      if (input === MASTER_PASSWORD) {
-        isLoggedIn = true;
-        closeLogin();
-        updateUI();
-      } else {
-        document.getElementById('loginError').classList.remove('hidden');
-      }
-    }
+<!-- Login Modal -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <h3>Owner Authentication</h3>
+    <p>Enter the master password to access stock control.</p>
+    <div class="error-msg" id="loginError">Incorrect password. Access denied.</div>
+    <form onsubmit="handleLogin(event)">
+      <input type="password" id="passwordInput" placeholder="Master Password" required>
+      <div class="modal-actions">
+        <button type="submit" class="btn primary">Login</button>
+        <button type="button" class="btn secondary" style="background:var(--surface-2); color:var(--ink)" onclick="closeLoginModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-    function logout() {
-      isLoggedIn = false;
-      updateUI();
-    }
+<div class="toast" id="toast"></div>
 
-    function handleAddProduct(e) {
-      e.preventDefault();
-      const name = document.getElementById('itemName').value;
-      const price = parseFloat(document.getElementById('itemPrice').value).toFixed(2);
-      const stock = parseInt(document.getElementById('itemStock').value, 10);
+<script>
+let cart = 0;
+let isLoggedIn = false;
+let products = [];
 
-      products.push({ id: Date.now(), name, price, stock });
-      document.getElementById('addItemForm').reset();
-      renderStore();
-    }
+// Password configuration
+const MASTER_PASSWORD = "StoreOwner2026!";
 
-    function deleteProduct(id) {
-      products = products.filter(p => p.id !== id);
-      renderStore();
-    }
+function notify(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(window._toast);
+  window._toast=setTimeout(()=>t.classList.remove('show'),2200);
+}
 
-    function renderStore() {
-      const grid = document.getElementById('productGrid');
-      
-      if (products.length === 0) {
-        grid.innerHTML = `<p style="color: var(--text-muted); grid-column: 1 / -1;">No products available. Log in as owner to add inventory.</p>`;
-        return;
-      }
+function openLoginModal(){
+  document.getElementById('loginModal').classList.add('active');
+  document.getElementById('passwordInput').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
 
-      grid.innerHTML = products.map(p => `
-        <div class="product-card">
+function closeLoginModal(){
+  document.getElementById('loginModal').classList.remove('active');
+}
+
+function toggleOwnerAuth(){
+  if(isLoggedIn){
+    isLoggedIn = false;
+    updateOwnerUI();
+    notify("Logged out of Owner Mode.");
+  } else {
+    openLoginModal();
+  }
+}
+
+function handleLogin(e){
+  e.preventDefault();
+  const pwd = document.getElementById('passwordInput').value;
+  if(pwd === MASTER_PASSWORD){
+    isLoggedIn = true;
+    closeLoginModal();
+    updateOwnerUI();
+    notify("Owner panel unlocked!");
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+}
+
+function updateOwnerUI(){
+  const btn = document.getElementById('ownerAuthBtn');
+  const panel = document.getElementById('ownerPanel');
+  if(isLoggedIn){
+    btn.textContent = 'Owner Logout';
+    btn.style.color = 'var(--accent-3)';
+    panel.classList.remove('hidden');
+  } else {
+    btn.textContent = 'Owner Login';
+    btn.style.color = 'var(--accent-2)';
+    panel.classList.add('hidden');
+  }
+  renderProducts();
+}
+
+function handleAddProduct(e){
+  e.preventDefault();
+  const name = document.getElementById('pName').value.trim();
+  const price = parseFloat(document.getElementById('pPrice').value).toFixed(2);
+  const stock = parseInt(document.getElementById('pStock').value, 10);
+  const tag = document.getElementById('pTag').value;
+
+  const bgClasses = ['a1', 'a2', 'a3', 'a4'];
+  const randomBg = bgClasses[Math.floor(Math.random() * bgClasses.length)];
+
+  products.push({ id: Date.now(), name, price, stock, tag, bgClass: randomBg });
+  
+  e.target.reset();
+  renderProducts();
+  notify(name + ' added to store.');
+}
+
+function deleteProduct(id){
+  products = products.filter(p => p.id !== id);
+  renderProducts();
+  notify("Product removed.");
+}
+
+function renderProducts(){
+  const grid = document.getElementById('productGrid');
+  
+  if(products.length === 0){
+    grid.innerHTML = `<p style="grid-column: 1 / -1; color: var(--muted); text-align: center; padding: 40px 0;">No items in stock. ${isLoggedIn ? 'Use the controls above to add stock.' : 'Log in as owner to stock items.'}</p>`;
+    return;
+  }
+
+  grid.innerHTML = products.map(p => `
+    <article class="product">
+      <div class="prod-art ${p.bgClass}">
+        <span class="tag">${p.tag}</span>
+      </div>
+      <div class="product-body">
+        <h3>${escapeHtml(p.name)}</h3>
+        <div class="meta">${p.stock > 0 ? p.stock + ' units available' : 'Out of Stock'}</div>
+        <div class="row-between">
           <div>
-            <h3>${escapeHtml(p.name)}</h3>
+            <div class="from">PRICE</div>
             <div class="price">$${p.price}</div>
-            <div class="stock">
-              <span class="status-badge ${p.stock > 0 ? 'in-stock' : 'out-stock'}">
-                ${p.stock > 0 ? `${p.stock} units in stock` : 'Out of Stock'}
-              </span>
-            </div>
           </div>
-          ${isLoggedIn ? `
-            <div class="card-actions">
-              <button class="btn btn-danger" style="width: 100%; font-size: 0.85rem; padding: 6px;" onclick="deleteProduct(${p.id})">Remove Item</button>
-            </div>
-          ` : ''}
+          <button class="small-btn" onclick="addCart('${escapeHtml(p.name)}')">Add to cart</button>
         </div>
-      `).join('');
-    }
+        ${isLoggedIn ? `<button class="btn-danger" onclick="deleteProduct(${p.id})">Remove Item</button>` : ''}
+      </div>
+    </article>
+  `).join('');
+}
 
-    function updateUI() {
-      const authBtn = document.getElementById('authBtn');
-      const ownerPanel = document.getElementById('ownerPanel');
+function addCart(name){
+  cart++;
+  document.getElementById('cartCount').textContent=cart;
+  notify(name+' added to cart.');
+}
 
-      if (isLoggedIn) {
-        authBtn.textContent = 'Logout Owner';
-        authBtn.classList.add('btn-danger');
-        ownerPanel.classList.remove('hidden');
-      } else {
-        authBtn.textContent = 'Owner Login';
-        authBtn.classList.remove('btn-danger');
-        ownerPanel.classList.add('hidden');
-      }
-      
-      renderStore();
-    }
+function doSearch(e){
+  e.preventDefault();
+  const q=document.getElementById('search').value.trim();
+  if(!q)return false;
+  notify('Search ready for: '+q);
+  return false;
+}
 
-    function escapeHtml(str) {
-      return str.replace(/[&<>"']/g, match => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[match]);
-    }
+function subscribe(e){
+  e.preventDefault();
+  const email=document.getElementById('email').value;
+  notify('Thanks — '+email+' is on the list.');
+  e.target.reset();
+  return false;
+}
 
-    // Initial render
-    renderStore();
-  </script>
+function scrollToId(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  document.getElementById('mainNav').classList.remove('open');
+}
+
+function toggleNav(){
+  document.getElementById('mainNav').classList.toggle('open');
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, match => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[match]);
+}
+
+// Initial Render
+renderProducts();
+</script>
 </body>
 </html>
