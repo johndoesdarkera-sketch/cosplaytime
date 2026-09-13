@@ -15,7 +15,27 @@
 .hero{padding:26px 22px 24px}.hero-wrap{max-width:1240px;margin:auto;min-height:500px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(125deg,#121a35 0%,#182e61 48%,#39204e 100%);box-shadow:var(--shadow)}.hero-glow{position:absolute;inset:-20% auto auto 42%;width:55%;height:90%;background:radial-gradient(circle,rgba(255,184,74,.25),transparent 63%);filter:blur(8px)}.hero-content{position:relative;z-index:1;padding:70px 58px;max-width:760px;color:#fff}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}.eyebrow span{width:7px;height:7px;background:#ffb742;border-radius:50%;box-shadow:0 0 14px #ffb742}.hero h1{font-size:clamp(46px,7vw,84px);line-height:.92;letter-spacing:-.055em;margin:20px 0 18px}.hero p{font-size:18px;line-height:1.6;color:#dbe1ef;max-width:620px}.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:0;border-radius:13px;padding:14px 19px;font-weight:850;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.btn.primary{background:#ffb32f;color:#151515}.btn.secondary{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18)}.hero-orbit{position:absolute;right:8%;bottom:-22px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,255,255,.15)}.hero-card{position:absolute;right:10%;top:70px;width:260px;background:#fff;border-radius:22px;padding:18px;box-shadow:0 25px 60px rgba(0,0,0,.24);transform:rotate(4deg)}.hero-card .mini-art{height:170px;border-radius:15px;background:linear-gradient(150deg,#b91d32,#1d4fb6 65%,#131b38);position:relative;overflow:hidden}.mini-art:before{content:"SUIT // 01";position:absolute;left:15px;top:14px;color:#fff;font-size:11px;font-weight:900;letter-spacing:.13em}.mini-art:after{content:"COSPLAYTIME";position:absolute;right:12px;bottom:10px;color:rgba(255,255,255,.7);font-size:11px;font-weight:800;letter-spacing:.1em}.hero-card h4{margin:14px 0 4px}.hero-card p{margin:0;color:var(--muted);font-size:12px}
 .perks{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.perks-inner{max-width:1240px;margin:auto;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr)}.perk{padding:22px 20px;display:flex;gap:12px;align-items:flex-start;border-right:1px solid var(--line)}.perk:last-child{border-right:0}.perk-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--surface-2);font-weight:900;color:var(--accent-2)}.perk strong{display:block;font-size:14px}.perk span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
 .section{padding:72px 22px}.section.alt{background:#fff}.section-head{max-width:1240px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}.section-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}.section h2{font-size:40px;letter-spacing:-.04em;margin:6px 0}.section-sub{color:var(--muted);max-width:600px;line-height:1.6;margin:0}.viewall{font-weight:800;color:var(--accent-2)}
-.category-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.cat{min-height:180px;border-radius:20px;padding:18px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(17,24,39,.10);transition:transform .2s ease}.cat:hover{transform:translateY(-4px)}.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.36))}.cat .label{position:relative;z-index:1}.cat b{font-size:19px;display:block}.cat span{font-size:11px;opacity:.8}.c1{background:linear-gradient(150deg,#263d90,#10182b)}.c2{background:linear-gradient(150deg,#e74661,#60162f)}.c3{background:linear-gradient(150deg,#f0a420,#71400a)}.c4{background:linear-gradient(150deg,#3447b6,#111d55)}.c5{background:linear-gradient(150deg,#2b7c67,#122e30)}.c6{background:linear-gradient(150deg,#b2572e,#3d1d18)}
+
+/* 4 columns layout for 16 category tiles */
+.category-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cat{min-height:160px;border-radius:20px;padding:20px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:0 10px 25px rgba(17,24,39,.10);transition:transform .2s ease}.cat:hover{transform:translateY(-4px)}.cat:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.45))}.cat .label{position:relative;z-index:1}.cat b{font-size:20px;display:block;line-height:1.2}.cat span{font-size:12px;opacity:.85;margin-top:4px;display:block}
+
+/* Custom Color Themes for 16 Categories */
+.c-deadpool{background:linear-gradient(150deg,#800913,#330005)}
+.c-mando{background:linear-gradient(150deg,#5a6577,#212733)}
+.c-ahsoka{background:linear-gradient(150deg,#247ba0,#0d324d)}
+.c-wolverine{background:linear-gradient(150deg,#d48c00,#3a2500)}
+.c-powerrangers{background:linear-gradient(150deg,#d62828,#003049)}
+.c-spiderman{background:linear-gradient(150deg,#ba181b,#003049)}
+.c-gotg{background:linear-gradient(150deg,#6b2d5c,#1f0c1d)}
+.c-starwars{background:linear-gradient(150deg,#1c2541,#0b132b)}
+.c-f4{background:linear-gradient(150deg,#0077b6,#03045e)}
+.c-theboys{background:linear-gradient(150deg,#3a3a3a,#111111)}
+.c-cap{background:linear-gradient(150deg,#1d3557,#081c36)}
+.c-thor{background:linear-gradient(150deg,#4a4e69,#22223b)}
+.c-blackwidow{background:linear-gradient(150deg,#2b2d42,#11121c)}
+.c-daredevil{background:linear-gradient(150deg,#9e2a2b,#3e0c0d)}
+.c-scarlet{background:linear-gradient(150deg,#b01432,#4a000e)}
+.c-whatif{background:linear-gradient(150deg,#6a040f,#370617)}
 
 .products{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{background:#fff;border:1px solid var(--line);border-radius:21px;overflow:hidden;position:relative;transition:.22s ease}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.prod-art{height:240px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.prod-art:before{content:"";width:160px;height:200px;border-radius:45% 45% 22% 22%;background:linear-gradient(160deg,rgba(255,255,255,.75),rgba(255,255,255,.12));filter:blur(.2px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 20px 35px rgba(0,0,0,.16)}.prod-art .tag{position:absolute;top:14px;left:14px;background:#fff;padding:7px 9px;border-radius:99px;font-size:10px;font-weight:900;letter-spacing:.08em}.product-body{padding:17px 17px 18px}.product h3{margin:0;font-size:17px}.meta{font-size:12px;color:var(--muted);margin:7px 0 13px}.row-between{display:flex;justify-content:space-between;align-items:center;gap:10px}.price{font-size:19px;font-weight:900}.from{font-size:11px;color:var(--muted)}.small-btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:800;cursor:pointer}.small-btn:hover{background:var(--surface-2)}
 .btn-danger{background:var(--accent-3);color:#fff;border:none;margin-top:10px;width:100%;padding:8px;border-radius:8px;font-weight:800;cursor:pointer;}
@@ -26,7 +46,6 @@
 footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px}.foot-brand{font-weight:900;color:#fff;font-size:21px}.foot-col h4{color:#fff;margin:0 0 14px}.foot-col a{display:block;color:#9ea7b8;font-size:13px;margin:9px 0}.foot-col a:hover{color:#fff}.foot-note{color:#7d879a;line-height:1.6;font-size:12px;max-width:340px;margin-top:12px}.copyright{max-width:1240px;margin:35px auto 0;border-top:1px solid #262d3d;padding-top:18px;color:#768095;font-size:11px;display:flex;justify-content:space-between;gap:15px}
 .toast{position:fixed;right:22px;bottom:22px;background:#111827;color:#fff;padding:13px 16px;border-radius:13px;box-shadow:var(--shadow);opacity:0;transform:translateY(14px);pointer-events:none;transition:.24s;z-index:50;font-size:13px}.toast.show{opacity:1;transform:translateY(0)}.mobile-toggle{display:none}.mobile-menu{display:none}
 
-/* Owner Control Panel & Modal Styles */
 .owner-panel{max-width:1240px;margin:0 auto 30px;background:var(--surface);border:2px dashed var(--accent);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
 .owner-panel h3{margin:0 0 16px;color:var(--ink);font-size:20px}
 .owner-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:12px;align-items:end}
@@ -46,8 +65,8 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
 
 .hidden{display:none !important}
 
-@media (max-width:980px){.header-inner{grid-template-columns:1fr auto}.search{grid-column:1/-1;order:3;padding-bottom:14px}.header-inner{padding-bottom:0}.perks-inner{grid-template-columns:repeat(2,1fr)}.perk:nth-child(2){border-right:0}.category-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.showcase{grid-template-columns:1fr}.news-wrap{flex-direction:column;align-items:stretch}.news-form{min-width:0}.hero-card{display:none}.hero-content{padding:58px 32px}.nav-inner{overflow:auto}.owner-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:620px){.topline-inner{display:none}.topline{height:0;border:0}.header-inner{min-height:76px;padding:8px 16px}.brand-name{font-size:18px}.brand-mark{width:46px;height:46px}.actions .hide-mobile{display:none}.mobile-toggle{display:block}.nav{display:none}.nav.open{display:block}.nav.open .nav-inner{height:auto;flex-wrap:wrap;padding:8px 14px 14px}.hero{padding:16px}.hero-wrap{min-height:500px}.hero-content{padding:48px 25px}.hero h1{font-size:52px}.hero p{font-size:16px}.perks-inner{grid-template-columns:1fr}.perk{border-right:0;border-bottom:1px solid var(--line)}.perk:last-child{border-bottom:0}.section{padding:54px 16px}.section-head{align-items:flex-start;flex-direction:column}.category-grid{grid-template-columns:repeat(2,1fr)}.cat{min-height:155px}.products{grid-template-columns:1fr}.prod-art{height:280px}.feature-main,.feature-side{padding:28px}.feature-main h3{font-size:34px}.news-form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column}.search input{padding-right:82px}.brand-tag{display:none}.owner-grid{grid-template-columns:1fr}}
+@media (max-width:980px){.header-inner{grid-template-columns:1fr auto}.search{grid-column:1/-1;order:3;padding-bottom:14px}.header-inner{padding-bottom:0}.perks-inner{grid-template-columns:repeat(2,1fr)}.perk:nth-child(2){border-right:0}.category-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.showcase{grid-template-columns:1fr}.news-wrap{flex-direction:column;align-items:stretch}.news-form{min-width:0}.hero-card{display:none}.hero-content{padding:58px 32px}.nav-inner{overflow:auto}.owner-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.topline-inner{display:none}.topline{height:0;border:0}.header-inner{min-height:76px;padding:8px 16px}.brand-name{font-size:18px}.brand-mark{width:46px;height:46px}.actions .hide-mobile{display:none}.mobile-toggle{display:block}.nav{display:none}.nav.open{display:block}.nav.open .nav-inner{height:auto;flex-wrap:wrap;padding:8px 14px 14px}.hero{padding:16px}.hero-wrap{min-height:500px}.hero-content{padding:48px 25px}.hero h1{font-size:52px}.hero p{font-size:16px}.perks-inner{grid-template-columns:1fr}.perk{border-right:0;border-bottom:1px solid var(--line)}.perk:last-child{border-bottom:0}.section{padding:54px 16px}.section-head{align-items:flex-start;flex-direction:column}.category-grid{grid-template-columns:1fr}.cat{min-height:140px}.products{grid-template-columns:1fr}.prod-art{height:280px}.feature-main,.feature-side{padding:28px}.feature-main h3{font-size:34px}.news-form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.copyright{flex-direction:column}.search input{padding-right:82px}.brand-tag{display:none}.owner-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -80,7 +99,7 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
     </div>
   </div>
 
-  <!-- Owner Management Dashboard (Hidden until logged in) -->
+  <!-- Owner Management Dashboard -->
   <div id="ownerPanel" class="owner-panel hidden">
     <h3>🛠️ Owner Controls: Add Stock & Pricing</h3>
     <form class="owner-grid" onsubmit="handleAddProduct(event)">
@@ -109,13 +128,42 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
     </form>
   </div>
 
-  <!-- Live Dynamic Products Grid -->
   <div class="products" id="productGrid">
-    <!-- Products render here -->
+    <!-- Dynamic products render here -->
   </div>
 </section>
 
-<section class="section" id="suits"><div class="section-head"><div><div class="section-kicker">Browse by world</div><h2>Find your next character.</h2><p class="section-sub">Explore curated categories for the kind of build you want to wear, display or finish yourself.</p></div><a class="viewall" href="#products">View all →</a></div><div class="category-grid"><a class="cat c1" href="#products"><span class="label"><b>Superhero</b><span>Modern & comic-inspired</span></span></a><a class="cat c2" href="#products"><span class="label"><b>Movie & TV</b><span>Screen-inspired builds</span></span></a><a class="cat c3" href="#products"><span class="label"><b>Game Worlds</b><span>Armor, suits & gear</span></span></a><a class="cat c4" href="#products"><span class="label"><b>Spider Suits</b><span>Classic to cinematic</span></span></a><a class="cat c5" href="#products"><span class="label"><b>Power & Armor</b><span>Hard parts & accessories</span></span></a><a class="cat c6" href="#products"><span class="label"><b>Original Builds</b><span>Make your own legend</span></span></a></div></section>
+<section class="section" id="suits">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">Browse by Universe & Hero</div>
+      <h2>Find your next character.</h2>
+      <p class="section-sub">Explore curated collections for suit builds, props, faceshells, and accessories.</p>
+    </div>
+    <a class="viewall" href="#products">View all →</a>
+  </div>
+
+  <!-- 16 Categories Grid -->
+  <div class="category-grid">
+    <a class="cat c-deadpool" href="#products"><span class="label"><b>Deadpool</b><span>Suits, Katana Mounts & Accessories</span></span></a>
+    <a class="cat c-mando" href="#products"><span class="label"><b>Mandalorian</b><span>Beskar Armor, Helmets & Gear</span></span></a>
+    <a class="cat c-ahsoka" href="#products"><span class="label"><b>Ahsoka Tano</b><span>Lekku, Lightsabers & Tunic Sets</span></span></a>
+    <a class="cat c-wolverine" href="#products"><span class="label"><b>Wolverine</b><span>Cowl Faceshells, Suits & Claws</span></span></a>
+    <a class="cat c-powerrangers" href="#products"><span class="label"><b>Power Rangers</b><span>Helmets, Suits & Morphers</span></span></a>
+    <a class="cat c-spiderman" href="#products"><span class="label"><b>Spider-Man</b><span>Faceshells, Lenses & Bodysuits</span></span></a>
+    <a class="cat c-gotg" href="#products"><span class="label"><b>Guardians of the Galaxy</b><span>Star-Lord Gear & Armor</span></span></a>
+    <a class="cat c-starwars" href="#products"><span class="label"><b>Star Wars</b><span>Jedi, Sith & Trooper Builds</span></span></a>
+    <a class="cat c-f4" href="#products"><span class="label"><b>Fantastic 4</b><span>Suit Sets & Emblems</span></span></a>
+    <a class="cat c-theboys" href="#products"><span class="label"><b>The Boys</b><span>Homelander & Hero Armor</span></span></a>
+    <a class="cat c-cap" href="#products"><span class="label"><b>Captain America</b><span>Shields, Cowls & Tactical Suits</span></span></a>
+    <a class="cat c-thor" href="#products"><span class="label"><b>Thor</b><span>Mjolnir, Armor & Cape Sets</span></span></a>
+    <a class="cat c-blackwidow" href="#products"><span class="label"><b>Black Widow</b><span>Baton Props, Holsters & Catsuits</span></span></a>
+    <a class="cat c-daredevil" href="#products"><span class="label"><b>Daredevil</b><span>Cowl Masks & Billy Club Props</span></span></a>
+    <a class="cat c-scarlet" href="#products"><span class="label"><b>Scarlet Witch</b><span>Tiara Headpieces & Robes</span></span></a>
+    <a class="cat c-whatif" href="#products"><span class="label"><b>What If...?</b><span>Multiverse Alternate Builds</span></span></a>
+  </div>
+</section>
+
 <section class="section" id="custom"><div class="feature"><div class="feature-main"><div class="section-kicker" style="color:#ffd17b">Custom Studio</div><h3>Get fitted like the suit was made for you.</h3><p>Choose a base build, submit your measurements, and add tailoring options for a closer fit. For larger projects, book a fitting appointment and discuss the build before production.</p><a class="btn primary" href="#contact">Start a custom request →</a></div><div class="feature-side"><div class="section-kicker">How it works</div><div class="step"><div class="step-num">1</div><div><h4>Choose your build</h4><p>Pick a ready-to-ship piece, replica-grade suit or DIY route.</p></div></div><div class="step"><div class="step-num">2</div><div><h4>Share your measurements</h4><p>Use the guided fitting form to give the studio what it needs.</p></div></div><div class="step"><div class="step-num">3</div><div><h4>Review & tailor</h4><p>Confirm sizing, add-ons and finishing details before production.</p></div></div><div class="step"><div class="step-num">4</div><div><h4>Suit up</h4><p>Receive your build ready for the convention floor, screen test or display.</p></div></div></div></div></section>
 <section class="section alt" id="faceshells"><div class="section-head"><div><div class="section-kicker">Built, not boxed</div><h2>More than just the suit.</h2><p class="section-sub">Pair your costume with purpose-built accessories — from faceshells to 3D-printed props and DIY upgrade kits.</p></div></div><div class="showcase" id="props"><article class="show-card show1"><div><small>Faceshells</small><h3>Precision-fit headshells</h3><p>Designed to pair cleanly with masks, lenses and suit openings.</p></div></article><article class="show-card show2" id="diy"><div><small>Props</small><h3>3D-printed hero gear</h3><p>Display pieces, wearable accessories and modular parts.</p></div></article><article class="show-card"><div><small>DIY kits</small><h3>Build it yourself</h3><p>Cut, finish and assemble with a guided parts approach.</p></div></article></div></section>
 <section class="newsletter"><div class="news-wrap"><div><h3>Get first access to new drops.</h3><p>New suits, props, commissions and studio updates in one clean email.</p></div><form class="news-form" onsubmit="return subscribe(event)"><input type="email" id="email" placeholder="Email address" required><button>Join list</button></form></div></section>
@@ -146,7 +194,6 @@ let cart = 0;
 let isLoggedIn = false;
 let products = [];
 
-// Password configuration
 const MASTER_PASSWORD = "StoreOwner2026!";
 
 function notify(msg){
@@ -292,7 +339,6 @@ function escapeHtml(str) {
   return str.replace(/[&<>"']/g, match => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[match]);
 }
 
-// Initial Render
 renderProducts();
 </script>
 </body>
