@@ -87,22 +87,22 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
   </div>
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
-      <a href="#top">Home</a><a href="#new">New Arrivals</a><button onclick="scrollToId('suits')">Suits ▾</button><button onclick="scrollToId('props')">Props ▾</button><a href="#faceshells">Faceshells</a><a class="hot" href="#products">Tailoring Listings</a><a href="#showcase">Cosplay Gallery</a><a href="#about">About</a>
+      <a href="#top">Home</a><a href="#new">New Arrivals</a><button onclick="scrollToId('suits')">Suits ▾</button><button onclick="scrollToId('props')">Props ▾</button><a href="#faceshells">Faceshells</a><a href="#showcase">Cosplay Gallery</a><a href="#about">About</a>
       <button class="owner-link" id="ownerAuthBtn" onclick="toggleOwnerAuth()">Owner Login</button>
     </div>
   </nav>
 </header>
 
 <main id="top">
-<section class="hero" id="new"><div class="hero-wrap"><div class="hero-glow"></div><div class="hero-content"><div class="eyebrow"><span></span> Built for the spotlight</div><h1>Suit up.<br>Make it yours.</h1><p>Movie-inspired cosplay suits, display-ready props, and faceshells - designed with attention to paneling, fit and finish.</p><div class="hero-ctas"><a class="btn primary" href="#products">Shop & Tailor Listings →</a></div></div><div class="hero-orbit"></div><div class="hero-card"><div class="mini-art"></div><h4>Build of the month</h4><p>Replica-grade finish  /  Custom sizing  /  Optional add-ons</p></div></div></section>
+<section class="hero" id="new"><div class="hero-wrap"><div class="hero-glow"></div><div class="hero-content"><div class="eyebrow"><span></span> Built for the spotlight</div><h1>Suit up.<br>Make it yours.</h1><p>Movie-inspired cosplay suits, display-ready props, and faceshells - designed with attention to paneling, fit and finish.</p><div class="hero-ctas"><a class="btn primary" href="#products">Shop the collection →</a></div></div><div class="hero-orbit"></div><div class="hero-card"><div class="mini-art"></div><h4>Build of the month</h4><p>Replica-grade finish  /  Custom sizing  /  Optional add-ons</p></div></div></section>
 <section class="perks"><div class="perks-inner"><div class="perk"><div class="perk-icon">✦</div><div><strong>Replica-ready detail</strong><span>Layered panels & clean finishing</span></div></div><div class="perk"><div class="perk-icon">↔</div><div><strong>Custom sizing</strong><span>Fit-first ordering & tailoring</span></div></div><div class="perk"><div class="perk-icon">⌁</div><div><strong>Build options</strong><span>Ready-made or custom components</span></div></div><div class="perk"><div class="perk-icon">◷</div><div><strong>Support</strong><span>Real people, practical answers</span></div></div></div></section>
 
 <section class="section alt" id="products">
   <div class="section-head">
     <div>
-      <div class="section-kicker">Catalog & Custom Fitting</div>
-      <h2>Browse items with custom tailoring options.</h2>
-      <p class="section-sub">Select custom tailoring options and enter your measurements directly on any listing below before adding to cart.</p>
+      <div class="section-kicker">Featured Collection</div>
+      <h2>Fresh from the workbench.</h2>
+      <p class="section-sub">Browse available items in stock, customize your fit directly on any listing, or log in as owner to update stock.</p>
     </div>
   </div>
 
@@ -174,7 +174,7 @@ footer{background:#0c1020;color:#d7dcea;padding:58px 22px 24px}.footer-grid{max-
 <section class="newsletter"><div class="news-wrap"><div><h3>Get first access to new drops.</h3><p>New suits, props, commissions and studio updates in one clean email.</p></div><form class="news-form" onsubmit="return subscribe(event)"><input type="email" id="email" placeholder="Email address" required><button>Join list</button></form></div></section>
 </main>
 
-<footer id="contact"><div class="footer-grid"><div><div class="foot-brand">COSPLAYTIME</div><div class="foot-note">Premium cosplay suits, props, and faceshells. A polished storefront concept inspired by the familiar category-first layout of legacy cosplay shops, but rebuilt with original branding, copy and visual direction.</div></div><div class="foot-col"><h4>Shop</h4><a href="#suits">Suits</a><a href="#props">Props</a><a href="#faceshells">Faceshells</a></div><div class="foot-col"><h4>Studio</h4><a href="#products">Custom Tailoring</a><a href="#showcase">Customer Gallery</a><a href="#about">About</a><a href="#contact">Contact</a></div><div class="foot-col"><h4>Help</h4><a href="#contact">Size Guide</a><a href="#contact">Shipping</a><a href="#contact">Returns</a><a href="#contact">FAQ</a></div></div><div class="copyright"><span>(c) 2026 CosplayTime. Demo storefront.</span><span>Made for suits, stories & the spotlight.</span></div></footer>
+<footer id="contact"><div class="footer-grid"><div><div class="foot-brand">COSPLAYTIME</div><div class="foot-note">Premium cosplay suits, props, and faceshells. A polished storefront concept inspired by the familiar category-first layout of legacy cosplay shops, but rebuilt with original branding, copy and visual direction.</div></div><div class="foot-col"><h4>Shop</h4><a href="#suits">Suits</a><a href="#props">Props</a><a href="#faceshells">Faceshells</a></div><div class="foot-col"><h4>Studio</h4><a href="#products">Catalog</a><a href="#showcase">Customer Gallery</a><a href="#about">About</a><a href="#contact">Contact</a></div><div class="foot-col"><h4>Help</h4><a href="#contact">Size Guide</a><a href="#contact">Shipping</a><a href="#contact">Returns</a><a href="#contact">FAQ</a></div></div><div class="copyright"><span>(c) 2026 CosplayTime. Demo storefront.</span><span>Made for suits, stories & the spotlight.</span></div></footer>
 
 <!-- Login Modal -->
 <div class="modal-overlay" id="loginModal">
@@ -304,7 +304,7 @@ function renderProducts(){
         <h3>${escapeHtml(p.name)}</h3>
         <div class="meta">${p.stock > 0 ? p.stock + ' units available' : 'Out of Stock'}</div>
 
-        <!-- Custom Tailoring Template Section -->
+        <!-- Custom Tailoring Options Template -->
         <div class="tailoring-card-section">
           <label class="tailor-checkbox-label">
             <input type="checkbox" id="tailorCheck-${p.id}" onchange="toggleTailoring(${p.id})">
